@@ -76,6 +76,6 @@ dfFinal <- cbind(dfSubjectActivity, dfFeatures)
 write.table(dfFinal, file = "./tidydata_main.txt",row.name=FALSE)
 
 message("use aggregate function to create the mean value for the new tidy set, saving data to disc")
-dfFinal2<-aggregate(dfFinal, by=list(dfFinal$subject, dfFinal$activity), FUN = mean)
+dfFinal2<-aggregate(. ~subject + activity, dfFinal, mean)
 
 write.table(dfFinal2, file = "./tidydata.txt",row.name=FALSE)
